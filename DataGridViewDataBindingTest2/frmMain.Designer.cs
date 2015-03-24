@@ -37,16 +37,18 @@
             this.dgData.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dgData.Dock = System.Windows.Forms.DockStyle.Fill;
             this.dgData.Location = new System.Drawing.Point(0, 0);
+            this.dgData.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.dgData.Name = "dgData";
-            this.dgData.Size = new System.Drawing.Size(284, 262);
+            this.dgData.Size = new System.Drawing.Size(741, 585);
             this.dgData.TabIndex = 0;
             // 
             // frmMain
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(284, 262);
+            this.ClientSize = new System.Drawing.Size(741, 585);
             this.Controls.Add(this.dgData);
+            this.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.Name = "frmMain";
             this.Text = "Form1";
             this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.frmMain_FormClosing);

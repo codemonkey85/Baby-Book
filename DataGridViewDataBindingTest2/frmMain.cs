@@ -19,58 +19,79 @@ namespace DataGridViewDataBindingTest2
         {
             InitializeComponent();
         }
-        List<TestClass> TestClasses = new List<TestClass>();
+        BabyBook Book = new BabyBook();
         BindingSource bs = new BindingSource();
-        const string BinFileName = @"C:\Users\mbond\Downloads\TestClasses.bin";
-        const string XmlFileName = @"C:\Users\mbond\Downloads\TestClasses.xml";
+        bool xml = true;
+        const string BinFileName = @"BabyBook.bin";
+        const string XmlFileName = @"BabyBook.xml";
         private void frmMain_Load(object sender, EventArgs e)
         {
-            //// Binary serialization
-            //if (File.Exists(BinFileName))
-            //{
-            //    Stream TestFileStream = File.OpenRead(BinFileName);
-            //    BinaryFormatter deserializer = new BinaryFormatter();
-            //    TestClasses = (List<TestClass>)deserializer.Deserialize(TestFileStream);
-            //    TestFileStream.Close();
-            //}
-
-            // XML Serialization
-            if (File.Exists(XmlFileName))
-            {
-                Stream TestFileStream = File.OpenRead(XmlFileName);
-                XmlSerializer deserializer = new XmlSerializer(typeof(List<TestClass>));
-                TestClasses = (List<TestClass>)deserializer.Deserialize(TestFileStream);
-                TestFileStream.Close();
-            }
-
-            bs.DataSource = TestClasses;
+            Book.Load(XmlFileName, xml);
+            bs.DataSource = Book.Records;
             dgData.DataSource = bs;
-
-            if (TestClasses.Count > 0)
-            {
-                TestClasses[0].Image = new Bitmap(@"C:\Users\mbond\Downloads\Image.png");
-            }
-
         }
         private void frmMain_FormClosing(object sender, FormClosingEventArgs e)
         {
-            //// Binary serialization
-            //Stream TestFileStream = File.Create(BinFileName);
-            //BinaryFormatter serializer = new BinaryFormatter();
-            //serializer.Serialize(TestFileStream, TestClasses);
-            //TestFileStream.Close();
-
-            // XML Serialization
-            Stream TestFileStream = File.Create(XmlFileName);
-            XmlSerializer serializer = new XmlSerializer(typeof(List<TestClass>));
-            serializer.Serialize(TestFileStream, TestClasses);
-            TestFileStream.Close();
+            Book.Save(XmlFileName, xml);
         }
     }
     [Serializable]
-    public class TestClass
+    public class BabyBook
     {
-        public TestClass()
+        public IList<Record> Records { get; set; }
+        public BabyBook()
+        {
+            Records = new List<Record>();
+        }
+        public void Save(string filename, bool xml = false)
+        {
+            if (xml)
+            {
+                // XML Serialization
+                Stream TestFileStream = File.Create(filename);
+                XmlSerializer serializer = new XmlSerializer(typeof(List<Record>));
+                serializer.Serialize(TestFileStream, Records);
+                TestFileStream.Close();
+            }
+            else
+            {
+                // Binary serialization
+                Stream TestFileStream = File.Create(filename);
+                BinaryFormatter serializer = new BinaryFormatter();
+                serializer.Serialize(TestFileStream, Records);
+                TestFileStream.Close();
+            }
+        }
+        public void Load(string filename, bool xml = false)
+        {
+            if (xml)
+            {
+                // XML Serialization
+                if (File.Exists(filename))
+                {
+                    Stream TestFileStream = File.OpenRead(filename);
+                    XmlSerializer deserializer = new XmlSerializer(typeof(List<Record>));
+                    Records = (List<Record>)deserializer.Deserialize(TestFileStream);
+                    TestFileStream.Close();
+                }
+            }
+            else
+            {
+                // Binary serialization
+                if (File.Exists(filename))
+                {
+                    Stream TestFileStream = File.OpenRead(filename);
+                    BinaryFormatter deserializer = new BinaryFormatter();
+                    Records = (List<Record>)deserializer.Deserialize(TestFileStream);
+                    TestFileStream.Close();
+                }
+            }
+        }
+    }
+    [Serializable]
+    public class Record
+    {
+        public Record()
         {
             Name = string.Empty;
             Something = string.Empty;
