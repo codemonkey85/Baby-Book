@@ -8,7 +8,7 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-namespace Baby_Book_UI_Prototyping.Properties
+namespace DataGridViewDataBindingTest2.Properties
 {
 
 
@@ -44,7 +44,7 @@ namespace Baby_Book_UI_Prototyping.Properties
             {
                 if ((resourceMan == null))
                 {
-                    global::System.Resources.ResourceManager temp = new global::System.Resources.ResourceManager("Baby_Book_UI_Prototyping.Properties.Resources", typeof(Resources).Assembly);
+                    global::System.Resources.ResourceManager temp = new global::System.Resources.ResourceManager("DataGridViewDataBindingTest2.Properties.Resources", typeof(Resources).Assembly);
                     resourceMan = temp;
                 }
                 return resourceMan;

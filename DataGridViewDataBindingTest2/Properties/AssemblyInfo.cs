@@ -5,11 +5,11 @@ using System.Runtime.InteropServices;
 // General Information about an assembly is controlled through the following 
 // set of attributes. Change these attribute values to modify the information
 // associated with an assembly.
-[assembly: AssemblyTitle("Baby Book UI Prototyping")]
+[assembly: AssemblyTitle("DataGridViewDataBindingTest2")]
 [assembly: AssemblyDescription("")]
 [assembly: AssemblyConfiguration("")]
 [assembly: AssemblyCompany("")]
-[assembly: AssemblyProduct("Baby Book UI Prototyping")]
+[assembly: AssemblyProduct("DataGridViewDataBindingTest2")]
 [assembly: AssemblyCopyright("Copyright ©  2015")]
 [assembly: AssemblyTrademark("")]
 [assembly: AssemblyCulture("")]
@@ -20,7 +20,7 @@ using System.Runtime.InteropServices;
 [assembly: ComVisible(false)]
 
 // The following GUID is for the ID of the typelib if this project is exposed to COM
-[assembly: Guid("231d79e0-bce2-4558-8eba-b55dea5820c5")]
+[assembly: Guid("d65fae93-2614-4b5f-8092-c8970ed24a93")]
 
 // Version information for an assembly consists of the following four values:
 //

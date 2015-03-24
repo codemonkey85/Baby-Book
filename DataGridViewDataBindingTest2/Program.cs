@@ -4,7 +4,7 @@ using System.Linq;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
-namespace Baby_Book_UI_Prototyping
+namespace DataGridViewDataBindingTest2
 {
     static class Program
     {
@@ -16,7 +16,7 @@ namespace Baby_Book_UI_Prototyping
         {
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            Application.Run(new Form1());
+            Application.Run(new frmMain());
         }
     }
 }
