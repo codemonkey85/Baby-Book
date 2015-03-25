@@ -14,7 +14,7 @@ namespace DataGridViewDataBindingTest2
     [Serializable]
     public class BabyBook
     {
-        public IList<Record> Records { get; set; }
+        public List<Record> Records { get; set; }
         public BabyBook()
         {
             Records = new List<Record>();

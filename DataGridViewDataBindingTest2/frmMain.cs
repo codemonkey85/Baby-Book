@@ -43,5 +43,18 @@ namespace DataGridViewDataBindingTest2
                 Book.Save(FileName + ".bin", xml);
             }
         }
+        private void txtSearch_TextChanged(object sender, EventArgs e)
+        {
+            if (txtSearch.Text == string.Empty)
+            {
+                bs.DataSource = Book.Records;
+            }
+            else
+            {
+                bs.DataSource = Book.Records.Where(record =>
+                    record.Name.ToLower().Contains(txtSearch.Text.ToLower().Trim()) ||
+                    record.Something.ToLower().Contains(txtSearch.Text.ToLower().Trim()));
+            }
+        }
     }
 }
